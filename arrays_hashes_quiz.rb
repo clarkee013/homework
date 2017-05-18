@@ -106,14 +106,54 @@ users = {
 # 5. Return the smallest of Erik's favorite numbers
 
 # 6. Add the number `7` to Erik's favorite numbers
+# => users["Erik"][:favourite_numbers]=[7, 8, 12, 24]
 
 # 7. Change Erik's hometown to Edinburgh
+# => ["Erik"][:home_town]="Edinburgh"
 
 # 8. Add a pet dog to Erik called "Fluffy"
+# => users["Erik"][:pets] = ["Fluffy" => :dog]
+# but this only replaces the rest of the pets with fluffy the dog
+# => users["Erik"][:pets] = ["nemo" => :fish,
+#       "kevin" => :fish,
+#       "spike" => :dog,
+#       "rupert" => :parrot,
+#       "Fluffy" => :dog]
+# this does add all the pets including the new one but there must be a way of only adding the new one without listing all the others?.
+
 
 # 9. Add yourself to the users hash
-# user.store(
+# => users = {
 #   "Jonathan" => {
+#     :twitter => "jonnyt",
+#     :favourite_numbers => [12, 42, 75, 12, 5],
+#     :home_town => "Stirling",
+#     :pets => {
+#       "fluffy" => :cat,
+#       "fido" => :dog,
+#       "spike" => :dog
+#     }
+#   },
+#   "Erik" => {
+#     :twitter => "eriksf",
+#     :favourite_numbers => [8, 12, 24],
+#     :home_town => "Linithgow",
+#     :pets => {
+#       "nemo" => :fish,
+#       "kevin" => :fish,
+#       "spike" => :dog,
+#       "rupert" => :parrot
+#     }
+#   },
+#   "Avril" => {
+#     :twitter => "bridgpally",
+#     :favourite_numbers => [12, 14, 85, 88],
+#     :home_town => "Dunbar",
+#     :pets => {
+#       "colin" => :snake
+#     }
+#   },
+#   "David" => {
 #     :twitter => "tweet",
 #     :favourite_numbers => [07, 13, 81, 17],
 #     :home_town => "Glasgow",
@@ -122,5 +162,5 @@ users = {
 #       "Topsy" => :cat,
 #     }
 #       }
-#       )
-# thought this would work but doesnt... :(
+#       }
+# => again having to re-list everything, need a shorter way!
