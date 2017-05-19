@@ -9,18 +9,23 @@
 # => lines[2]
 
 # 3. How many ways can we return 'St Enoch' from the array?
-# => 2 ways =>
 # => lines[0]
 # => lines[-13]
+# => lines.first()
+# => lines.take(1)
+# => lines.shift()
 
 # 4. Work out the index position of 'Partick'
 # => lines.index("Partick")
 
 # 5. Add 'Bridge St' to the start of the array
-# => lines.pop("Bridge St")
+# => lines.pop("Bridge St") --- not sure need to check
+# => lines.unshift("Bridge St")
+# => lines.insert(0, "Bridge St")
 
 # 6. Add 'West St' to the end of the array
 # => lines.push("West St")
+# => lines << "West St"
 
 # 7. Remove 'Kelvinbridge' from the array using it's name
 # => lines.delete("Kelvinbridge")
@@ -32,9 +37,14 @@
 # => lines.reverse
 
 # 10. Print out all the stops using a for loop
-# => for lines in lines 
-# =>   puts lines
-# => end
+# => for stops in lines 
+#       puts stops
+#    end
+# => counter = 0 
+#     while counter < lines.size()
+#     puts line[counter]
+#     counter += 1
+#     end
 
 ### B. Given the following data structure:
 
@@ -42,19 +52,25 @@
 
 # 1. How would you return the string `"One"`?
 # => my_hash.fetch(1)
+# => my_hash[1]
 
 # 2. How would you return the string `"Two"`?
-# => puts my_hash[:two]
+# => my_hash[:two]
 
 # 3. How would you return the number `2`?
-# => puts my_hash.fetch("two")
+# => my_hash.fetch("two")
+# => my_hash["two"]
 
 # 4. How would you add `{3 => "Three"}` to the hash?
 # => my_hash = {"0" => "Zero", 1 => "One", :two => "Two", "two" => 2, 3 => "Three"}
 # => my_hash.store(3, "Three")
+# => my_hash[3] = "Three"
+# => my_hash.merge({3 => "Three"})
 
 # 5. How would you add `{:four => 4}` to the hash?
 # => my_hash[:four] = 4
+# => my_hash.store(:four, 4)
+# => my_hash.merge({:four => 4})
 
 
 ### C. Given the following data structure:
@@ -104,8 +120,16 @@ users = {
 # => users["Avril"][:pets]["colin"]
 
 # 5. Return the smallest of Erik's favorite numbers
+# => users["Erik"][:favourite_numbers].sort().first()
+# => users["Erik"][:favourite_numbers].min()
+# => users["Erik"][:favourite_numbers].first()
+# last one is only suitable cause we can see the lowest number is first already.
 
 # 6. Add the number `7` to Erik's favorite numbers
+# => users["Erik"][:favourite_numbers] << 7
+# => users["Erik"][:favourite_numbers].push(7)
+# => users["Erik"][:favourite_numbers].unshift(7)
+# => users["Erik"][:favourite_numbers].insert(0, 7)
 # => users["Erik"][:favourite_numbers]=[7, 8, 12, 24]
 
 # 7. Change Erik's hometown to Edinburgh
@@ -120,7 +144,8 @@ users = {
 #       "rupert" => :parrot,
 #       "Fluffy" => :dog]
 # this does add all the pets including the new one but there must be a way of only adding the new one without listing all the others?.
-
+# => users["Erik"][:pets]["Fluffy"] = :dog
+# => users["Erik"][:pets].store("Fluffy, :dog")
 
 # 9. Add yourself to the users hash
 # => users = {
@@ -164,3 +189,10 @@ users = {
 #       }
 #       }
 # => again having to re-list everything, need a shorter way!
+# => users["David"] = {
+#      :twitter => "tweet",
+#      :favourite_numbers => [07, 13, 81, 17],
+#      :home_town => "Glasgow",
+#      :pets => {
+#        "Ralf" => :dog,
+#        "Topsy" => :cat,}}
