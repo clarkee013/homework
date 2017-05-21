@@ -54,12 +54,6 @@ def add_pet_to_stock(pet_shop, new_pet)
   pet_shop[:pets] << new_pet
 end 
 
-def test_add_pet_to_customer
-  customer = @customers[0]
-  add_pet_to_customer(customer, @new_pet)
-  assert_equal(1, customer_pet_count(customer))
-end
-
 def customer_pet_count(customer)
   return customer[:pets].count
 end
@@ -68,9 +62,21 @@ def add_pet_to_customer(customer, new_pet)
   return customer[:pets] << new_pet
 end
 
+def customer_can_afford_pet(customer, pet_shop)
+  for customer in customers 
+    if (customer[:cash] >= pet_shop[:pets][:price])
+    end
+  end
+end
 
-
-
-
+# i want to check if the customer can afford the pet
+# check cash against pet price - return true
+# from the test below its looking at the index of customers calling it customer
+# and then another variable can_buy_pet from the function - end function named can_buy_pet?
+# def test_customer_can_afford_pet__insufficient_funds
+#   customer = @customers[1]
+#   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+#   assert_equal(false, can_buy_pet)
+# end
 
 
