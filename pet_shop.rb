@@ -71,4 +71,16 @@ end
 # check cash against pet price - return true
 # Dales answer - return (customer[:cash]-new_pet[:price] > 0)
 
+def sell_pet_to_customer(pet_shop, pet, customer)
+  if pet && customer_can_afford_pet(customer, pet)  
+    add_pet_to_customer(customer, pet)
+    increase_pets_sold(pet_shop, 1)
+    add_or_remove_cash(pet_shop, pet[:price])
+  end
+end
+
+
+
+
+
 
