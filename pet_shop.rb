@@ -37,6 +37,7 @@ def find_pet_by_name(pet_shop, title)
   for pet in pet_shop[:pets]
     if (pet[:name] == title)
       pet_name_array << pet
+      # using the << is ok here as its only one addition, more than one addition then .push maybe be better to use.
     end
   end 
   return pet_name_array.first
@@ -62,21 +63,12 @@ def add_pet_to_customer(customer, new_pet)
   return customer[:pets] << new_pet
 end
 
-def customer_can_afford_pet(customer, pet_shop)
-  for customer in customers 
-    if (customer[:cash] >= pet_shop[:pets][:price])
-    end
-  end
+def customer_can_afford_pet(customer, new_pet)
+  return customer[:cash] >= new_pet[:price]
 end
 
-# i want to check if the customer can afford the pet
+# I want to check if the customer can afford the pet
 # check cash against pet price - return true
-# from the test below its looking at the index of customers calling it customer
-# and then another variable can_buy_pet from the function - end function named can_buy_pet?
-# def test_customer_can_afford_pet__insufficient_funds
-#   customer = @customers[1]
-#   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-#   assert_equal(false, can_buy_pet)
-# end
+# Dales answer - return (customer[:cash]-new_pet[:price] > 0)
 
 
