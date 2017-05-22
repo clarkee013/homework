@@ -4,7 +4,7 @@ require_relative ('codeclan_students')
 
 class TestStudents < MiniTest::Test
 
-def setup ()
+def setup()
   @student_one = Students.new("David", 2, "CSS")
   @student_two = Students.new("Bob", 1, "Ruby")
   @student_three = Students.new("Alice", 1, "Python")
