@@ -6,8 +6,10 @@ class Library
     @rental_date = input_rental_date
   end
 
-  def list_books_and_details()
-      
+  def list_books_and_details(title, rental_details)
+      for book in books
+        return "#{:title}, #{:rental_details}"
+      end
   end
 
 end # END of CLASS
